@@ -6,7 +6,7 @@ const Folder = ({ index, item }) => {
 
     return (
         <div key={index} role='directory'>
-            <h2 onClick={() => setIsOpen(!isOpen)}>{item.name}</h2>
+            <h2 onClick={() => setIsOpen(!isOpen)} className="text-lg py-4 cursor-pointer underline">{item.name}</h2>
             {isOpen && item.files.map((subItem, index) => {
                 console.log(item)
                 return (

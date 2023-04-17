@@ -30,10 +30,16 @@ describe('Home', () => {
         render(<Home dataSource={fileData} />);
         const expensesFolder = screen.getByText('Expenses');
         const miscFolder = screen.getByText('Misc');
+        let expensesSubDir = screen.queryByText('Expenses claim form');
+        let miscSubDir = screen.queryByText('Christmas party')
+        expect(expensesSubDir).not.toBeInTheDocument();
+        expect(miscSubDir).not.toBeInTheDocument();
+
+
         fireEvent.click(expensesFolder);
         fireEvent.click(miscFolder);
-        const expensesSubDir = screen.getByText('Expenses claim form');
-        const miscSubDir = screen.getByText('Christmas party');
+        expensesSubDir = screen.queryByText('Expenses claim form');
+        miscSubDir = screen.queryByText('Christmas party')
         expect(expensesSubDir).toBeVisible();
         expect(miscSubDir).toBeVisible();
     });
