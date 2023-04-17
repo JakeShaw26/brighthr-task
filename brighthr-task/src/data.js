@@ -1,4 +1,4 @@
-[
+export const fileData = [
   {
     "type": "pdf",
     "name": "Employee Handbook",
